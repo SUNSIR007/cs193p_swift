@@ -9,16 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        HStack {
+            CardView(isFaceUp: true)
+            CardView()
+            CardView()
+            CardView()
         }
-        .padding()
+        .foregroundColor(.blue)
     }
 }
 
-#Preview {
+struct CardView: View {
+    var isFaceUp: Bool = false
+    
+    var body: some View {
+        ZStack {
+            if isFaceUp {
+                RoundedRectangle(cornerRadius: 12)
+                    .foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12)
+                    .strokeBorder(lineWidth: 2)
+                VStack{
+                    Text("👻")
+                    Text("Swift!")
+                        .foregroundColor(.black)
+                }
+                .background(.pink)
+            } else {
+                RoundedRectangle(cornerRadius: 12)
+            }
+            
+        }
+    }
+}
+
+#Preview("Dark Mode") {
     ContentView()
 }
