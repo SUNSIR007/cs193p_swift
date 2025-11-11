@@ -13,6 +13,7 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         ScrollView {
             cards
+                .animation(.default, value: viewModel.cards)
         }
         Button("Shuffle") {
             viewModel.shuffle()
