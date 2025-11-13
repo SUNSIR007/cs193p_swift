@@ -21,7 +21,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
     
-    var indexOfTheOneAndOnlyFaceUpCard: Int?
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            var faceUpCardIndices: [Int]
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    faceUpCardIndices.append(index)
+                }
+            }
+        }
+    }
     
     mutating func choose(_ card: Card)
     {

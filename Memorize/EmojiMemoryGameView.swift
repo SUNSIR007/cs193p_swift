@@ -34,7 +34,6 @@ struct EmojiMemoryGameView: View {
                 }
             }
         }
-        //.foregroundColor(.blue)
     }
 }
 
@@ -68,10 +67,10 @@ struct CardView: View {
                 .foregroundColor(.yellow)
                 .opacity(card.isFaceUp ? 0 : 1)
         }
-        .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+        .opacity(card.isMatched ? 0 : 1)
     }
 }
-
+  
 #Preview("Dark Mode") {
     EmojiMemoryGameView(viewModel: EmojiMemoryGame())
 }
